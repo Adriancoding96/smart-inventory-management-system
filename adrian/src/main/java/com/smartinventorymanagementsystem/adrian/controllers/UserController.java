@@ -1,5 +1,6 @@
 package com.smartinventorymanagementsystem.adrian.controllers;
 
+import com.smartinventorymanagementsystem.adrian.services.Interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RequestMapping("/sims/api/v1")
 public class UserController {
 
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @Autowired
     public UserController(UserServiceImpl userService) {

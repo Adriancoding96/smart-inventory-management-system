@@ -1,4 +1,4 @@
-package com.smartinventorymanagementsystem.adrian;
+package com.smartinventorymanagementsystem.adrian.mappers;
 
 import java.util.Set;
 
@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashSet;
 import org.junit.jupiter.api.Test;
-import com.smartinventorymanagementsystem.adrian.mappers.UserMapper;
 import com.smartinventorymanagementsystem.adrian.models.User;
 import com.smartinventorymanagementsystem.adrian.dtos.UserDTO;
 import com.smartinventorymanagementsystem.adrian.models.Role;

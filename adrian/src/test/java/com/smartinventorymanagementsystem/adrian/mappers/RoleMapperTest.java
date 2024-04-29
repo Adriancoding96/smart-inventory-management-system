@@ -1,11 +1,10 @@
-package com.smartinventorymanagementsystem.adrian;
+package com.smartinventorymanagementsystem.adrian.mappers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.smartinventorymanagementsystem.adrian.mappers.RoleMapper;
 import com.smartinventorymanagementsystem.adrian.dtos.RoleDTO;
 import com.smartinventorymanagementsystem.adrian.models.Role;
 import com.smartinventorymanagementsystem.adrian.models.User;
