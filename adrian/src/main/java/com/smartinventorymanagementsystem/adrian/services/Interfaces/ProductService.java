@@ -14,4 +14,6 @@ public interface ProductService {
     ProductDTO saveProduct(ProductDTO productDTO);
     ProductDTO updateProduct(ProductDTO productDTO);
     void deleteProduct(Long id);
+    ProductDTO increaseStock(Long id, int amount);
+    ProductDTO decreaseStock(Long id, int amount);
 }

@@ -2,6 +2,7 @@ package com.smartinventorymanagementsystem.adrian.controllers;
 
 import com.smartinventorymanagementsystem.adrian.dtos.ProductDTO;
 import com.smartinventorymanagementsystem.adrian.dtos.ProductWithImagesDTO;
+import com.smartinventorymanagementsystem.adrian.requests.ChangeStockRequest;
 import com.smartinventorymanagementsystem.adrian.services.Interfaces.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,8 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-//Todo create endpoints to decrease and increase stock quantity
 
 @RestController
 @RequestMapping("/sims/api/v1")
@@ -55,6 +54,19 @@ public class ProductController {
 
     @DeleteMapping("/products/{id}")
     ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/products/{id}/increase-stock")
+    ResponseEntity<ProductDTO> increaseProductStock(@PathVariable Long id, @RequestBody ChangeStockRequest changeRequest) {
+        ProductDTO productDTO = productService.increaseStock(id, changeRequest.getAmount());
+        return ResponseEntity.ok(productDTO);
+    }
+
+    @PatchMapping("/products/{id}/decrease-stock")
+    ResponseEntity<ProductDTO> decreaseProductStock(@PathVariable Long id, @RequestBody ChangeStockRequest changeRequest) {
+        ProductDTO productDTO = productService.decreaseStock(id, changeRequest.getAmount());
+        return ResponseEntity.ok(productDTO);
     }
 }

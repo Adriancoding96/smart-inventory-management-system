@@ -2,6 +2,7 @@ package com.smartinventorymanagementsystem.adrian.services.Implementations;
 
 import com.smartinventorymanagementsystem.adrian.dtos.ProductDTO;
 import com.smartinventorymanagementsystem.adrian.dtos.ProductWithImagesDTO;
+import com.smartinventorymanagementsystem.adrian.exceptions.InsufficientStockException;
 import com.smartinventorymanagementsystem.adrian.mappers.ProductMapper;
 import com.smartinventorymanagementsystem.adrian.models.Category;
 import com.smartinventorymanagementsystem.adrian.models.Product;
@@ -90,6 +91,33 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public ProductDTO increaseStock(Long id, int amount) {
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if(optionalProduct.isEmpty()) {
+            throw new EntityNotFoundException("Product with id: " + id + " not found");
+        }
+        Product product = optionalProduct.get();
+        product.setStockQuantity(product.getStockQuantity() + amount);
+        productRepository.save(product);
+        return productMapper.toDTO(product);
+    }
+
+    @Override
+    public ProductDTO decreaseStock(Long id, int amount) {
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if(optionalProduct.isEmpty()) {
+            throw new EntityNotFoundException("Product with id: " + id + " not found");
+        }
+        Product product = optionalProduct.get();
+        if(product.getStockQuantity() - amount < 0) {
+            throw new InsufficientStockException();
+        }
+        product.setStockQuantity(product.getStockQuantity() - amount);
+        productRepository.save(product);
+        return productMapper.toDTO(product);
     }
 
     private Product updateFields(Product product, ProductDTO productDTO) {
