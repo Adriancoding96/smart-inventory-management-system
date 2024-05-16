@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class AdrianApplication {
 
+	//TODO service layer and controller for order related entities
 	public static void main(String[] args) {
 		SpringApplication.run(AdrianApplication.class, args);
 	}

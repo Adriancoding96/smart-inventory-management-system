@@ -1,8 +1,11 @@
 package com.smartinventorymanagementsystem.adrian.services.Interfaces;
 
 
+import com.smartinventorymanagementsystem.adrian.dtos.CacheDTO;
 import com.smartinventorymanagementsystem.adrian.dtos.ProductDTO;
 import com.smartinventorymanagementsystem.adrian.dtos.ProductWithImagesDTO;
+import org.antlr.v4.runtime.misc.MultiMap;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -16,4 +19,5 @@ public interface ProductService {
     void deleteProduct(Long id);
     ProductDTO increaseStock(Long id, int amount);
     ProductDTO decreaseStock(Long id, int amount);
+
 }

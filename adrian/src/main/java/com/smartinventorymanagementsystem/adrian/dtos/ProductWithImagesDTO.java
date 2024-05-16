@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Data
-public class ProductWithImagesDTO {
+public class ProductWithImagesDTO extends BaseDTO{
     private Long id;
     private String name;
     private String description;

@@ -28,28 +28,28 @@ public class RoleController {
     }
 
     @GetMapping("/roles")
-    private ResponseEntity<List<RoleDTO>> GetAllRoles(){
+    public ResponseEntity<List<RoleDTO>> GetAllRoles(){
         List<RoleDTO> roles = roleService.getAllRoles();
         return ResponseEntity.ok().body(roles);
     }
 
     @GetMapping("/roles/{id}")
-    private ResponseEntity<RoleDTO> getRoleById(@PathVariable Long id){
+    public ResponseEntity<RoleDTO> getRoleById(@PathVariable Long id){
         return ResponseEntity.ok(roleService.findById(id));
     }
 
     @PostMapping("/roles")
-    private ResponseEntity<RoleDTO> saveRole(@RequestBody RoleDTO roleDTO) {
+    public ResponseEntity<RoleDTO> saveRole(@RequestBody RoleDTO roleDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(roleService.saveRole(roleDTO));
     }
 
     @PutMapping("/roles")
-    private ResponseEntity<RoleDTO> updateRole(@RequestBody RoleDTO roleDTO) {
+    public ResponseEntity<RoleDTO> updateRole(@RequestBody RoleDTO roleDTO) {
         return ResponseEntity.ok(roleService.updateRole(roleDTO));
     }
 
     @DeleteMapping("/roles/{id}")
-    private ResponseEntity<Void> deleteRole(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteRole(@PathVariable Long id) {
         roleService.deleteRole(id);
         return ResponseEntity.noContent().build();
     }

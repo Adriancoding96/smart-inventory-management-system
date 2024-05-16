@@ -24,6 +24,9 @@ public class Product extends BaseEntity {
     private String description;
 
     @Column(nullable = false)
+    private double weightKG;
+
+    @Column(nullable = false)
     private BigDecimal price;
 
     @Column(nullable = false)
@@ -35,4 +38,8 @@ public class Product extends BaseEntity {
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ProductImage> images;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderItem> orderItems;
+
 }

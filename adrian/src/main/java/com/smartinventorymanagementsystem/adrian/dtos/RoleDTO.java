@@ -6,7 +6,7 @@ import java.util.HashSet;
 import lombok.Data;
 
 @Data
-public class RoleDTO {
+public class RoleDTO extends BaseDTO{
     private Long id;
     private String name;
     private Set<Long> userIds = new HashSet<>();
