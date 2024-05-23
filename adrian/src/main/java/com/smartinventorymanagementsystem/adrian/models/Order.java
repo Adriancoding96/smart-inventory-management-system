@@ -27,5 +27,10 @@ public class Order extends BaseEntity{
     private BigDecimal totalPrice;
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private OrderStatus orderStatus;
+    @Column(nullable = false)
+    private String requestedOrderMethod;
+    @ManyToOne
+    @JoinColumn(name = "order_history_id")
+    private OrderHistory orderHistory;
 
 }

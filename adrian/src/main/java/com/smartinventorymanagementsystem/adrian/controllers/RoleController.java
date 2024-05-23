@@ -1,5 +1,6 @@
 package com.smartinventorymanagementsystem.adrian.controllers;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 @RestController
 @RequestMapping("/sims/api/v1")
+@PreAuthorize("hasRole(ADMIN)")
 public class RoleController {
 
     private RoleService roleService;

@@ -13,5 +13,5 @@ public class OrderDTO {
     private Long customerId;
     private LocalDateTime orderDate;
     private BigDecimal totalPrice;
-
+    private String requestedOrderMethod;
 }

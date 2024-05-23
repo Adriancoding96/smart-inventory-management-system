@@ -26,6 +26,4 @@ public class Customer extends BaseEntity{
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private OrderHistory orderHistory;
 }

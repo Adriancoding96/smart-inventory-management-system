@@ -14,26 +14,5 @@ public class OrderStatusDTO {
     private String deliveryMethod;
     private String deliveryCompany;
     private boolean delivered;
-
-    /*
-    @OneToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
-
-    @Column(nullable = false)
-    private String status;
-
-    @Column(nullable = false)
-    private LocalDateTime expectedShippingDate;
-
-    @Column(nullable = false)
-    private LocalDateTime expectedDeliveryDate;
-
-    @Column(nullable = false)
-    private String deliveryMethod;
-
-    @Column(nullable = false)
-    private String deliveryCompany;
-
-    * */
 }
+
